@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
+import { NewsletterProvider } from "./context/NewsletterContext";
+import { EnvProvider } from "./context/EnvContext";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <p>Start prompting (or editing) to see magic happen :)</p>
-    </div>
-  )
+    <EnvProvider>
+      <NewsletterProvider>
+        <LandingPage />
+      </NewsletterProvider>
+    </EnvProvider>
+  );
 }
 
-export default App
+export default App;

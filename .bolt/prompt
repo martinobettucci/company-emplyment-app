@@ -10,7 +10,7 @@ The app search for a company and given a list of relevant sources, it will prepa
 
 The first API collects the sources, the second prepare the email.
 
-The first API is on https://n8n.p2enjoy.studio/webhook-test/1bab15e1-213c-4ba0-88ca-a665f77b3ad8 and is expecting a POST request with a payload like this exemple:
+The first API is on https://n8n.p2enjoy.studio/webhook/1bab15e1-213c-4ba0-88ca-a665f77b3ad8 and is expecting a POST request with a payload like this exemple:
 ```json
 [
   {
@@ -58,7 +58,7 @@ The first API will responds back with a JSON like this exemple:
 ]
 ```
 
-The second API, drafting the email, is on https://n8n.p2enjoy.studio/webhook-test/42abac48-beb9-45cb-b87e-4d7961610ff6 epecting a POST request with a payload like this exemple:
+The second API, drafting the email, is on https://n8n.p2enjoy.studio/webhook/42abac48-beb9-45cb-b87e-4d7961610ff6 epecting a POST request with a payload like this exemple:
 ```json
 [
   {
