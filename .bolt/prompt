@@ -1,0 +1,85 @@
+For all designs I ask you to make, have them be beautiful, not cookie cutter. Make webpages that are fully featured and worthy for production.
+
+By default, this template supports JSX syntax with Tailwind CSS classes, React hooks, and Lucide React for icons. Do not install other packages for UI themes, icons, etc unless absolutely necessary or I request them.
+
+Use icons from lucide-react for logos.
+
+Use stock photos from unsplash where appropriate, only valid URLs you know exist. Do not download the images, only link to them in image tags.
+
+The app search for a company and given a list of relevant sources, it will prepare a newsletter to be sent to the subscribers. It uses 2 API.
+
+The first API collects the sources, the second prepare the email.
+
+The first API is on https://n8n.p2enjoy.studio/webhook-test/1bab15e1-213c-4ba0-88ca-a665f77b3ad8 and is expecting a POST request with a payload like this exemple:
+```json
+[
+  {
+    "company": "APPLE"
+  }
+]
+```
+The first API will responds back with a JSON like this exemple:
+```json
+[
+  {
+    "companyName": "APPLE",
+    "searchResults": {
+      "onlineResults": [
+        {
+          "title": "Apple Unveils New iPhone 15 with Advanced Features",
+          "url": "https://www.technews.com/apple-iphone-15-launch",
+          "reason": "Recent product launch news highlighting Apple's latest flagship smartphone."
+        },
+        {
+          "title": "Apple Reports Quarterly Earnings Beat Expectations",
+          "url": "https://www.finance.com/apple-earnings-q1-2024",
+          "reason": "Financial report indicating strong quarterly earnings for Apple."
+        },
+        {
+          "title": "Apple Invests in Renewable Energy Projects in 2024",
+          "url": "https://www.greenenergy.com/apple-renewables-2024",
+          "reason": "News about Apple's sustainability initiatives and investments in renewable energy."
+        }
+      ],
+      "localResults": [
+        {
+          "title": "Apple Store Downtown LA",
+          "location": "Los Angeles, CA",
+          "reason": "A major Apple retail store providing local customer service and support."
+        },
+        {
+          "title": "Apple Authorized Service Provider - San Francisco",
+          "location": "San Francisco, CA",
+          "reason": "Local service provider for Apple products and repairs."
+        }
+      ]
+    }
+  }
+]
+```
+
+The second API, drafting the email, is on https://n8n.p2enjoy.studio/webhook-test/42abac48-beb9-45cb-b87e-4d7961610ff6 epecting a POST request with a payload like this exemple:
+```json
+[
+  {
+    "subject": "First item",
+    "body": "body of the email"
+  }
+]
+```
+
+The second API will responds back with a JSON like this exemple:
+```json
+[
+  {
+    "id": "r3779028047434799363",
+    "message": {
+      "id": "196f88cba259f096",
+      "threadId": "196f88cba259f096",
+      "labelIds": [
+        "DRAFT"
+      ]
+    }
+  }
+]
+```
